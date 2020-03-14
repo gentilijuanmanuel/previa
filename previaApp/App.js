@@ -1,22 +1,37 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import NumberOfParticipantsScreen from './screens/NumberOfParticipantsScreen';
+import TotalAmountScreen from './screens/TotalAmountScreen';
+import ParticipantsExpensesScreen from './screens/ParticipantsExpensesScreen';
+import ResultScreen from './screens/ResultScreen';
+
+const RootStack = createStackNavigator();
 
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <Text>Hello, this is previa app!</Text>
-  </SafeAreaView>
+  <NavigationContainer>
+    <RootStack.Navigator>
+      <RootStack.Screen
+        name="NumberOfParticipantsScreen"
+        component={NumberOfParticipantsScreen}
+        options={{ headerShown: false }}
+      />
+      <RootStack.Screen
+        name="TotalAmountScreen"
+        component={TotalAmountScreen}
+      />
+      <RootStack.Screen
+        name="ParticipantsExpensesScreen"
+        component={ParticipantsExpensesScreen}
+      />
+      <RootStack.Screen
+        name="ResultScreen"
+        component={ResultScreen}
+      />
+    </RootStack.Navigator>
+  </NavigationContainer>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default App;
