@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint *.js **/*.js"
   },
   "dependencies": {
     "react": "16.9.0",
@@ -17,8 +17,9 @@
     "@babel/core": "7.8.7",
     "@babel/runtime": "7.8.7",
     "@react-native-community/eslint-config": "0.0.5",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "24.9.0",
-    "eslint": "6.8.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
