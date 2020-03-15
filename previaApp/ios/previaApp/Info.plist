@@ -53,5 +53,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BellotaText-Regular.ttf</string>
+		<string>BellotaText-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

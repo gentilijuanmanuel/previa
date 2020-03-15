@@ -20,6 +20,8 @@
 		8AA65CCF7E0CDEDC3E3BA352 /* libPods-previaApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85975241BA92E88796EDA6F8 /* libPods-previaApp-tvOS.a */; };
 		D7A2EA0D09EE2CDEF5CCE2E3 /* libPods-previaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CD86657DF2CCB8309F8621 /* libPods-previaApp.a */; };
 		D7EA4E05666CCB85338AAA25 /* libPods-previaApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E9425DA8A6C043D853FA19 /* libPods-previaApp-tvOSTests.a */; };
+		F50213BD241ED6D7003AE89E /* BellotaText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F50213BC241ED6D7003AE89E /* BellotaText-Regular.ttf */; };
+		F50213BF241ED6E2003AE89E /* BellotaText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F50213BE241ED6E2003AE89E /* BellotaText-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		E96847025C44150476B5D052 /* Pods-previaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-previaAppTests.release.xcconfig"; path = "Target Support Files/Pods-previaAppTests/Pods-previaAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F50213BC241ED6D7003AE89E /* BellotaText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BellotaText-Regular.ttf"; path = "../../../../../../../Desktop/previa/Bellota_Text/BellotaText-Regular.ttf"; sourceTree = "<group>"; };
+		F50213BE241ED6E2003AE89E /* BellotaText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BellotaText-Bold.ttf"; path = "../../../../../../../Desktop/previa/Bellota_Text/BellotaText-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F53D18D3241ED3B800347EC1 /* fonts */,
 				13B07FAE1A68108700A75B9A /* previaApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* previaAppTests */,
@@ -194,8 +199,16 @@
 				DB3C1DFB811F668146466B32 /* Pods-previaAppTests.debug.xcconfig */,
 				E96847025C44150476B5D052 /* Pods-previaAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F53D18D3241ED3B800347EC1 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F50213BE241ED6E2003AE89E /* BellotaText-Bold.ttf */,
+				F50213BC241ED6D7003AE89E /* BellotaText-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +303,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = DDNS7XYHNN;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = DDNS7XYHNN;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -308,6 +325,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -336,7 +354,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50213BD241ED6D7003AE89E /* BellotaText-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F50213BF241ED6E2003AE89E /* BellotaText-Bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +603,7 @@
 			baseConfigurationReference = DB3C1DFB811F668146466B32 /* Pods-previaAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DDNS7XYHNN;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -607,6 +628,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = DDNS7XYHNN;
 				INFOPLIST_FILE = previaAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -628,6 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = DDNS7XYHNN;
 				INFOPLIST_FILE = previaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -647,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DDNS7XYHNN;
 				INFOPLIST_FILE = previaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
