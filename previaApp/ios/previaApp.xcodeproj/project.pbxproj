@@ -22,6 +22,7 @@
 		D7EA4E05666CCB85338AAA25 /* libPods-previaApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E9425DA8A6C043D853FA19 /* libPods-previaApp-tvOSTests.a */; };
 		F50213BD241ED6D7003AE89E /* BellotaText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F50213BC241ED6D7003AE89E /* BellotaText-Regular.ttf */; };
 		F50213BF241ED6E2003AE89E /* BellotaText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F50213BE241ED6E2003AE89E /* BellotaText-Bold.ttf */; };
+		F5E61DF6241F0A62002E34AE /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E61DF5241F0A62002E34AE /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* previaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = previaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* previaAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = previaAppTests.m; sourceTree = "<group>"; };
@@ -71,6 +71,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F50213BC241ED6D7003AE89E /* BellotaText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BellotaText-Regular.ttf"; path = "../../../../../../../Desktop/previa/Bellota_Text/BellotaText-Regular.ttf"; sourceTree = "<group>"; };
 		F50213BE241ED6E2003AE89E /* BellotaText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BellotaText-Bold.ttf"; path = "../../../../../../../Desktop/previa/Bellota_Text/BellotaText-Bold.ttf"; sourceTree = "<group>"; };
+		F5E61DF5241F0A62002E34AE /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +130,7 @@
 		13B07FAE1A68108700A75B9A /* previaApp */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				F5E61DF5241F0A62002E34AE /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -356,6 +357,7 @@
 			files = (
 				F50213BD241ED6D7003AE89E /* BellotaText-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F5E61DF6241F0A62002E34AE /* main.jsbundle in Resources */,
 				F50213BF241ED6E2003AE89E /* BellotaText-Bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

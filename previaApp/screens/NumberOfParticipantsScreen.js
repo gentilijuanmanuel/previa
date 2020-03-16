@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ImageBackground,
   Text,
@@ -6,7 +6,8 @@ import {
   StyleSheet,
   View,
   Keyboard,
-  Alert
+  Alert,
+  Animated
 } from 'react-native';
 
 import Card from '../components/Card';
@@ -16,6 +17,17 @@ import sharedStyles from '../styles/sharedStyles';
 
 const NumberOfParticipantsScreen = ({ navigation }) => {
   const [numberOfParticipants, setNumberOfParticipants] = useState('');
+  const [fadeAnim] = useState(new Animated.Value(0));
+
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 1000,
+      }
+    ).start();
+  }, []);
 
   const resetNumberHandler = () => setNumberOfParticipants('');
 
@@ -38,7 +50,7 @@ const NumberOfParticipantsScreen = ({ navigation }) => {
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
         <View style={styles.firstViewContainer}>
-          <View style={styles.secondViewContainer}>
+          <Animated.View style={{ ...sharedStyles.secondViewContainer, opacity: fadeAnim }}>
             <Card style={styles.cardContainer}>
               <Text style={styles.title}>Cuántos son?</Text>
               <Input
@@ -50,7 +62,7 @@ const NumberOfParticipantsScreen = ({ navigation }) => {
                 value={numberOfParticipants}
               />
             </Card>
-          </View>
+          </Animated.View>
           <Button title="Listo" onPress={nextButtonPressedHandler} />
         </View>
       </TouchableWithoutFeedback>

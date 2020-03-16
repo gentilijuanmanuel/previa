@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     fontSize: fontSizes.input,
     textAlign: 'center',
-    fontFamily: fontFamilies.bold
+    fontFamily: fontFamilies.bold,
+    color: colors.black
   }
 });
 

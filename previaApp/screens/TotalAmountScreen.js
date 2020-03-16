@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ImageBackground,
   Text,
@@ -6,7 +6,8 @@ import {
   StyleSheet,
   View,
   Keyboard,
-  Alert
+  Alert,
+  Animated
 } from 'react-native';
 
 import Card from '../components/Card';
@@ -18,6 +19,17 @@ const TotalAmountScreen = ({ navigation, route }) => {
   const { numberOfParticipants } = route.params;
 
   const [spentMoney, setSpentMoney] = useState('');
+  const [fadeAnim] = useState(new Animated.Value(0));
+
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 1000,
+      }
+    ).start();
+  }, []);
 
   const resetNumberHandler = () => setSpentMoney('');
 
@@ -43,7 +55,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
         <View style={styles.firstViewContainer}>
-          <View style={styles.secondViewContainer}>
+          <Animated.View style={{ ...sharedStyles.secondViewContainer, opacity: fadeAnim }}>
             <Card style={styles.cardContainer}>
               <Text style={styles.title}>Cuánto gastaron?</Text>
               <Input
@@ -55,7 +67,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
                 value={spentMoney}
               />
             </Card>
-          </View>
+          </Animated.View>
           <Button title="Listo" onPress={nextButtonPressedHandler} />
         </View>
       </TouchableWithoutFeedback>
