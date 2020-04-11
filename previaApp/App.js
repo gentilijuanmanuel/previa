@@ -12,11 +12,10 @@ const RootStack = createStackNavigator();
 
 const App = () => (
   <NavigationContainer>
-    <RootStack.Navigator>
+    <RootStack.Navigator headerMode="none">
       <RootStack.Screen
         name="NumberOfParticipantsScreen"
         component={NumberOfParticipantsScreen}
-        options={{ headerShown: false }}
       />
       <RootStack.Screen
         name="TotalAmountScreen"
@@ -26,7 +25,6 @@ const App = () => (
       <RootStack.Screen
         name="ParticipantsExpensesScreen"
         component={ParticipantsExpensesScreen}
-        options={{ headerShown: false }}
       />
       <RootStack.Screen
         name="ResultScreen"

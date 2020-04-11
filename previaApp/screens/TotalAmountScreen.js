@@ -23,8 +23,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {
-
-    Animated.timing(
+      Animated.timing(
       fadeAnim,
       {
         toValue: 1,
@@ -52,7 +51,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
 
   return (
     <ImageBackground
-      source={require('../resources/friends-3.jpg')}
+      source={{uri: 'friends-2'}}
       style={styles.screenContainer}
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>

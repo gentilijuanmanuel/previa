@@ -1,30 +1,33 @@
+// TODO: refactor this screen!!!
 import React, { useState, useEffect } from 'react';
 import {
+  Alert,
   ImageBackground,
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableWithoutFeedback,
   Keyboard,
   Animated
 } from 'react-native';
-import lodash from 'lodash';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { uniqueId } from 'lodash';
 
 import Button from '../components/Button';
 import Card from '../components/Card';
 import Input from '../components/Input';
 
-
 import sharedStyles from '../styles/sharedStyles';
 import fontSizes from '../styles/fontSizes';
+
+const formErrorMessage = '1. No debe haber nombres incompletos. \n2. Todos los gastos individuales deben ser menores que el gasto total. \n3. La suma de los gastos individuales tiene que ser igual al gasto total.';
 
 const createInitialParitcipantsArray = (numberOfParticipants) => {
   let participants = [];
 
   for (let i = 0; i < numberOfParticipants; i++) {
     participants[i] = {
-      id: lodash.uniqueId(),
+      id: uniqueId(),
       name: '',
       amount: ''
     };
@@ -79,6 +82,22 @@ const ParticipantsExpensesScreen = ({ navigation, route }) => {
   const changeAmountHandler = id => enteredAmount => setParticipants(updateParticipantAmount(id, enteredAmount));
 
   const nextButtonPressedHandler = () => {
+    let entriesHaveErrors = false;
+    let totalExpenseParticipants = 0;
+
+    participants.forEach(participant => {
+      totalExpenseParticipants += parseFloat(participant.amount);
+      if (!participant.name || 0 === participant.name.length || isNaN(parseFloat(participant.amount)) || participant.amount <= 0 || participant.amount > expense) {
+        entriesHaveErrors = true;
+        return;
+      }
+    });
+
+    if (entriesHaveErrors || totalExpenseParticipants !== expense) {
+      Alert.alert('Las pilas!', formErrorMessage, [{ text: 'Ok', style: 'destructive', onPress: () => {} }]);
+      return;
+    }
+
     navigation.navigate('ResultScreen', {
       expense,
       numberOfParticipants,
@@ -87,35 +106,35 @@ const ParticipantsExpensesScreen = ({ navigation, route }) => {
   };
 
   const participantsList = participants.map((participant) =>
-  <View key={participant.id}>
-    <View style={styles.nameAmonutItem}>
-      <Text style={styles.description}>Nombre:</Text>
-      <Input
-        style={styles.detailInput}
-        blurOnSubmit
-        autoCorrect={false}
-        maxLength={15}
-        onChangeText={changeNameHandler(participant.id)}
-        value={participant.name}
-      />
-    </View>
-    <View style={styles.nameAmonutItem}>
-      <Text style={styles.description}>Pagó:</Text>
-      <Input
-        style={styles.detailInput}
-        keyboardType="decimal-pad"
-        blurOnSubmit
-        autoCorrect={false}
-        maxLength={7}
-        onChangeText={changeAmountHandler(participant.id)}
-        value={participant.amount}
-      />
-    </View>
-  </View>);
+    <View key={participant.id}>
+      <View style={styles.nameAmountItem}>
+        <Text style={styles.description}>Nombre:</Text>
+        <Input
+          style={styles.detailInput}
+          blurOnSubmit
+          autoCorrect={false}
+          maxLength={15}
+          onChangeText={changeNameHandler(participant.id)}
+          value={participant.name}
+        />
+      </View>
+      <View style={styles.nameAmountItem}>
+        <Text style={styles.description}>Pagó:</Text>
+        <Input
+          style={styles.detailInput}
+          keyboardType="decimal-pad"
+          blurOnSubmit
+          autoCorrect={false}
+          maxLength={7}
+          onChangeText={changeAmountHandler(participant.id)}
+          value={participant.amount}
+        />
+      </View>
+    </View>);
 
   return (
     <ImageBackground
-      source={require('../resources/friends-4.jpg')}
+      source={{uri: 'friends-3'}}
       style={styles.screenContainer}
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
@@ -126,9 +145,11 @@ const ParticipantsExpensesScreen = ({ navigation, route }) => {
                 <Text style={styles.text}>Participantes: {numberOfParticipants}</Text>
                 <Text style={styles.text}>Gasto total: ${expense}</Text>
               </View>
-              <ScrollView style={styles.participantsContainer}>
+              <KeyboardAwareScrollView
+                resetScrollToCoords={{ x: 0, y: 0 }}
+                style={styles.participantsContainer}>
                 {participantsList}
-              </ScrollView>
+              </KeyboardAwareScrollView>
             </Card>
           </Animated.View>
           <Button title="Listo" onPress={nextButtonPressedHandler} />
@@ -144,6 +165,7 @@ const styles = StyleSheet.create({
   cardContainer: sharedStyles.cardContainer,
   text: sharedStyles.title,
   description: sharedStyles.description,
+  nameAmountItem: sharedStyles.nameAmountItem,
   summaryContainer: {
     alignItems: 'center'
   },
@@ -152,11 +174,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     width: 110,
     textAlign: 'right'
-  },
-  nameAmonutItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 10
   },
   participantsContainer: {
     margin: 20,

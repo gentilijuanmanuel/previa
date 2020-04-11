@@ -21,6 +21,7 @@
 		D7A2EA0D09EE2CDEF5CCE2E3 /* libPods-previaApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CD86657DF2CCB8309F8621 /* libPods-previaApp.a */; };
 		D7EA4E05666CCB85338AAA25 /* libPods-previaApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E9425DA8A6C043D853FA19 /* libPods-previaApp-tvOSTests.a */; };
 		F5010B01243991FA00C5D570 /* BellotaText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F563FD5C243929A60071E684 /* BellotaText-Regular.ttf */; };
+		F52E6B4024426EE00082FEEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		F563FD5D243929A60071E684 /* BellotaText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F563FD5C243929A60071E684 /* BellotaText-Regular.ttf */; };
 		F5E61DF6241F0A62002E34AE /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E61DF5241F0A62002E34AE /* main.jsbundle */; };
 		F5F2707F243927CD009CE82E /* BellotaText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5F2707E243927CD009CE82E /* BellotaText-Bold.ttf */; };
@@ -350,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52E6B4024426EE00082FEEF /* Images.xcassets in Resources */,
 				F5010B01243991FA00C5D570 /* BellotaText-Regular.ttf in Resources */,
 				F5F27080243927E7009CE82E /* BellotaText-Bold.ttf in Resources */,
 			);

@@ -21,8 +21,10 @@ export default {
   },
   cardContainer: {
     width: 400,
+    margin: 10,
     alignItems: 'center',
-    maxWidth: '80%'
+    maxWidth: '80%',
+    maxHeight: '85%'
   },
   title: {
     fontSize: fontSizes.title,
@@ -31,5 +33,10 @@ export default {
   description: {
     fontSize: fontSizes.description,
     fontFamily: fontFamilies.regular
+  },
+  nameAmountItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 10
   }
 };
