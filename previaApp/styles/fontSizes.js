@@ -1,5 +1,7 @@
 export default {
   title: 30,
-  input: 100,
-  buttonTitle: 20
+  mainInput: 100,
+  smallInput: 25,
+  buttonTitle: 20,
+  description: 25
 };

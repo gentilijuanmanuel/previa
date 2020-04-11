@@ -14,6 +14,7 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import sharedStyles from '../styles/sharedStyles';
+import fontSizes from '../styles/fontSizes';
 
 const NumberOfParticipantsScreen = ({ navigation }) => {
   const [numberOfParticipants, setNumberOfParticipants] = useState('');
@@ -54,6 +55,7 @@ const NumberOfParticipantsScreen = ({ navigation }) => {
             <Card style={styles.cardContainer}>
               <Text style={styles.title}>Cuántos son?</Text>
               <Input
+                style={styles.numberOfParticipantsInput}
                 keyboardType="number-pad"
                 blurOnSubmit
                 autoCorrect={false}
@@ -75,7 +77,13 @@ const styles = StyleSheet.create({
   firstViewContainer: sharedStyles.firstViewContainer,
   secondViewContainer: sharedStyles.secondViewContainer,
   cardContainer: sharedStyles.cardContainer,
-  title: sharedStyles.title
+  title: sharedStyles.title,
+  numberOfParticipantsInput: {
+    width: 250,
+    marginVertical: 10,
+    textAlign: 'center',
+    fontSize: fontSizes.mainInput
+  }
 });
 
 export default NumberOfParticipantsScreen;

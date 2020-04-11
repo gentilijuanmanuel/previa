@@ -26,6 +26,7 @@ const App = () => (
       <RootStack.Screen
         name="ParticipantsExpensesScreen"
         component={ParticipantsExpensesScreen}
+        options={{ headerShown: false }}
       />
       <RootStack.Screen
         name="ResultScreen"

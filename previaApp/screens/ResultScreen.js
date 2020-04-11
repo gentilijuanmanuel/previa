@@ -5,11 +5,19 @@ import {
   StyleSheet
 } from 'react-native';
 
-const ResultScreen = (props) => (
-  <View style={styles.screenContainer}>
-    <Text>Final result screen!</Text>
-  </View>
-);
+const ResultScreen = ({ navigation, route }) => {
+  const { numberOfParticipants, expense, participants } = route.params;
+  
+  console.log(numberOfParticipants);
+  console.log(expense);
+  console.log(participants);
+
+  return (
+    <View style={styles.screenContainer}>
+      <Text>Final result screen!</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   screenContainer: {

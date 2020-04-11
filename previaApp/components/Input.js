@@ -11,17 +11,13 @@ import fontFamilies from '../styles/fontFamilies';
 const Input = (props) => {
   const { style } = props;
 
-  return <TextInput {...props} style={{ ...styles.input, ...style }} />;
+  return <TextInput {...props} style={{ ...style, ...styles.input }} />;
 };
 
 const styles = StyleSheet.create({
   input: {
-    width: 250,
     borderBottomColor: colors.primary,
     borderBottomWidth: 1,
-    marginVertical: 10,
-    fontSize: fontSizes.input,
-    textAlign: 'center',
     fontFamily: fontFamilies.bold,
     color: colors.black
   }

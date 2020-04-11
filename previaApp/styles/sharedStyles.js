@@ -20,12 +20,16 @@ export default {
     justifyContent: 'center'
   },
   cardContainer: {
-    width: 300,
+    width: 400,
     alignItems: 'center',
     maxWidth: '80%'
   },
   title: {
     fontSize: fontSizes.title,
     fontFamily: fontFamilies.bold
+  },
+  description: {
+    fontSize: fontSizes.description,
+    fontFamily: fontFamilies.regular
   }
 };

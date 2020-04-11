@@ -14,6 +14,7 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import sharedStyles from '../styles/sharedStyles';
+import fontSizes from '../styles/fontSizes';
 
 const TotalAmountScreen = ({ navigation, route }) => {
   const { numberOfParticipants } = route.params;
@@ -22,6 +23,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {
+
     Animated.timing(
       fadeAnim,
       {
@@ -36,14 +38,14 @@ const TotalAmountScreen = ({ navigation, route }) => {
   const changedTextHandler = (inputText) => setSpentMoney(inputText);
 
   const nextButtonPressedHandler = () => {
-    const chosenNumber = parseFloat(spentMoney);
-    if (isNaN(chosenNumber) || chosenNumber <= 0) {
+    const expense = parseFloat(spentMoney);
+    if (isNaN(expense) || expense <= 0) {
       Alert.alert('Las pilas!', 'Ingresá un monto válido.', [{ text: 'Ok', style: 'destructive', onPress: resetNumberHandler }]);
       return;
     }
 
     navigation.navigate('ParticipantsExpensesScreen', {
-      chosenNumber,
+      expense,
       numberOfParticipants
     });
   };
@@ -59,6 +61,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
             <Card style={styles.cardContainer}>
               <Text style={styles.title}>Cuánto gastaron?</Text>
               <Input
+                style={styles.totalAmountInput}
                 keyboardType="decimal-pad"
                 blurOnSubmit
                 autoCorrect={false}
@@ -80,7 +83,13 @@ const styles = StyleSheet.create({
   firstViewContainer: sharedStyles.firstViewContainer,
   secondViewContainer: sharedStyles.secondViewContainer,
   cardContainer: sharedStyles.cardContainer,
-  title: sharedStyles.title
+  title: sharedStyles.title,
+  totalAmountInput: {
+    width: 250,
+    marginVertical: 10,
+    textAlign: 'center',
+    fontSize: fontSizes.mainInput
+  }
 });
 
 export default TotalAmountScreen;
