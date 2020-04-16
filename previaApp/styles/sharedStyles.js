@@ -3,9 +3,7 @@ import fontFamilies from './fontFamilies';
 
 export default {
   screenContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
   firstViewContainer: {
     backgroundColor: 'rgba(0,0,0,0.5)',

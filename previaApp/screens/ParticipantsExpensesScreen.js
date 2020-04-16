@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
-  Animated
+  Animated,
+  FlatList
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { uniqueId } from 'lodash';
@@ -105,8 +106,8 @@ const ParticipantsExpensesScreen = ({ navigation, route }) => {
     });
   };
 
-  const participantsList = participants.map((participant) =>
-    <View key={participant.id}>
+  const ParticipantItem = (participant) => (
+    <View>
       <View style={styles.nameAmountItem}>
         <Text style={styles.description}>Nombre:</Text>
         <Input
@@ -130,31 +131,33 @@ const ParticipantsExpensesScreen = ({ navigation, route }) => {
           value={participant.amount}
         />
       </View>
-    </View>);
+    </View>
+  );
 
   return (
-    <ImageBackground
-      source={{uri: 'friends-3'}}
-      style={styles.screenContainer}
-    >
-      <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
-        <View style={styles.firstViewContainer}>
-          <Animated.View style={{ ...sharedStyles.secondViewContainer, opacity: fadeAnim }}>
-            <Card style={styles.cardContainer}>
-              <View style={styles.summaryContainer}>
-                <Text style={styles.text}>Participantes: {numberOfParticipants}</Text>
-                <Text style={styles.text}>Gasto total: ${expense}</Text>
-              </View>
-              <KeyboardAwareScrollView
-                resetScrollToCoords={{ x: 0, y: 0 }}
-                style={styles.participantsContainer}>
-                {participantsList}
-              </KeyboardAwareScrollView>
-            </Card>
-          </Animated.View>
-          <Button title="Listo" onPress={nextButtonPressedHandler} />
-        </View>
-      </TouchableWithoutFeedback>
+      <ImageBackground
+        source={{uri: 'friends-3'}}
+        style={styles.screenContainer}
+      >
+        <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
+          <KeyboardAwareScrollView contentContainerStyle={styles.firstViewContainer}>
+            <Animated.View style={{ ...sharedStyles.secondViewContainer, opacity: fadeAnim }}>
+              <Card style={styles.cardContainer}>
+                <View style={styles.summaryContainer}>
+                  <Text style={styles.text}>Participantes: {numberOfParticipants}</Text>
+                  <Text style={styles.text}>Gasto total: ${expense}</Text>
+                </View>
+                <FlatList
+                  style={styles.participantsContainer}
+                  data={participants}
+                  renderItem={({ participant }) => <ParticipantItem participant={participant} />}
+                  keyExtractor={participant => participant.id}
+                />
+              </Card>
+            </Animated.View>
+            <Button title="Listo" onPress={nextButtonPressedHandler} />
+          </KeyboardAwareScrollView>
+        </TouchableWithoutFeedback>
     </ImageBackground>
   );
 };
