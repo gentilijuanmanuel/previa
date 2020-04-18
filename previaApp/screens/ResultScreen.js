@@ -60,7 +60,7 @@ const ResultScreen = ({ navigation, route }) => {
 
   return (
     <ImageBackground
-      source={{uri: 'friends-4'}}
+      source={{uri: 'friends4'}}
       style={styles.screenContainer}
     >
       <View style={styles.firstViewContainer}>

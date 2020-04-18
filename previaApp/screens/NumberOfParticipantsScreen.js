@@ -46,7 +46,7 @@ const NumberOfParticipantsScreen = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={{uri: 'friends-1'}}
+      source={{uri: 'friends1'}}
       style={styles.screenContainer}
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>

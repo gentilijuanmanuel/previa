@@ -51,7 +51,7 @@ const TotalAmountScreen = ({ navigation, route }) => {
 
   return (
     <ImageBackground
-      source={{uri: 'friends-2'}}
+      source={{uri: 'friends2'}}
       style={styles.screenContainer}
     >
       <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
